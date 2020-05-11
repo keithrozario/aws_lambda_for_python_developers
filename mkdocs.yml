@@ -1,0 +1,6 @@
+site_name: AWS Lambda for Python Developers
+nav:
+  - Home: index.md
+  - "Chapter 1: From the Console": 01_console.md
+
+theme: readthedocs
