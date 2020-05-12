@@ -1,6 +1,8 @@
 site_name: AWS Lambda for Python Developers
 nav:
-  - Home: index.md
+  - Home: home.md
+  - Index: index.md
   - "Chapter 1: From the Console": 01_console.md
+  - "Chapter 2: What is the event & context?": 02_event_and_context.md
 
 theme: readthedocs

@@ -2,7 +2,7 @@
 
 A short course on AWS Lambda for Python Developers
 
-# Pre-requisites
+## Pre-requisites
 
 * Beginner skills in Python (you know what list and dicts are)
 * AWS Account
@@ -11,7 +11,7 @@ A short course on AWS Lambda for Python Developers
 
 Let's Go!!
 
-# Why Python
+## Why Python
 
 There's a lot of content on AWS Lambda out there in the wild wild west of the internet -- but a lot of it is focused on Node & Javascript, with a very small percentage focused on Python, even smaller for other languages like Java, Rust and Ruby -- but honestly nobody cares about them anyway.
 
@@ -29,7 +29,7 @@ That doesn't mean Python isn't suited for Lambda -- it just means Javascript wil
 
 So if you have existing Python knowledge and want to code in Lambda, without learning a whole new language, this is written for you.
 
-# Philosophy
+## Philosophy
 
 The book has a few 'philosophical' approaches as well:
 

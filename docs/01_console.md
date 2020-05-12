@@ -27,7 +27,7 @@ Then click the `Create Function` button
 
 Obviously you don't believe me, so let's create a test for this.
 
-**Step 4:** In the top right of the screen, selecte the `Selecte a test event` dropdown box, and then click on `Configure test events`.
+**Step 4:** In the top right of the screen, select the *Select a test event* dropdown box, and then click on *Configure test events*.
 
 ![Create Function](images/01/step_04_create_test_event.png)
 
@@ -39,9 +39,9 @@ Obviously you don't believe me, so let's create a test for this.
 
 ![Create Function](images/01/step_06_test.png)
 
-> Still don't believe me? Now let's edit code
+You're probably still skeptical. Now let's edit code and see what we get.
 
-**Step 7:** Scroll down to the `Function Code` section, and paste the following code into the designer:
+**Step 7:** Scroll down to the **Function code** section, and paste the following code into the designer:
 
 ```python
 def lambda_handler(event, context):
@@ -53,7 +53,7 @@ def lambda_handler(event, context):
 
 ```
 
-The only real difference in the code, is that now we're going to dump the `event` object into the `body` of the return, rather than just a static string of "Hello from Lambda". Don't worry about what event or body mean for now, let's just get our code executing.
+The only real difference in the code, is that now we're going to dump the `event` object into the `body` of the return object, rather than just a static string of "Hello from Lambda". Don't worry about what `event` or `body` mean for now, let's just test this out first.
 
 ![Create Function](images/01/step_07_modify_code.png)
 
@@ -67,19 +67,21 @@ What you've just printed out in the json dump of the Test event, we created in s
 
 Right now you're probably wondering what the hell happened, and it's easy to lose sight of just how magical this is.
 
-You've just written and run code on AWS.
+You've just ran your code on AWS.
 
-Let me say that again, because people lose sight of this fact -- You've just written and run code on AWS.
+Let me say that again, in uppercase for dramatic effect:
+
+> YOU'VE JUST RUN CODE ON AWS!!!
 
 If you have previous experience with AWS on something like EC2, you know how hard it is to run code on the cloud. You first need to generate a key-pair, use that pair to provision a Virtual Machine(VM), logon to the VM with the private key, load your code onto the VM, and finally run it.
 
-Don't even get me started on something like Fargate or EKS.
+Don't even get me started on something like Fargate or EKS, where you need to create containers, and upload them to repositories etc.
 
 It's a lot of work to run code on AWS ....
 
 Unless you're Lambda.
 
-With Lambda we don't need Keypairs, Elastic IPs or Dockerfiles. You can literally just write code and pass it to AWS to run (as the example demonstrated). AWS provide the Python Runtime, and you just bring the code, and together you have a working application on the cloud.
+With Lambda we don't need keypairs, Elastic IPs or Dockerfiles. You can literally pass code to AWS for it to run (as the example demonstrated). 
 
 If you haven't had AWS experience before -- congratulations, you're jumping onto the bandwagon at the precise time when it's easiest and most beneficial, and this is why lambda functions are a powerful tool to learn.
 
