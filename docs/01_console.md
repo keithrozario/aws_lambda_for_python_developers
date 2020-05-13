@@ -85,4 +85,6 @@ With Lambda we don't need keypairs, Elastic IPs or Dockerfiles. You can literall
 
 If you haven't had AWS experience before -- congratulations, you're jumping onto the bandwagon at the precise time when it's easiest and most beneficial, and this is why lambda functions are a powerful tool to learn.
 
+10 years ago, learning AWS exclusively meant learning to run VMs on the EC2. Today, we have a wealth of options, and Lambda is the best place to start as it has a much lower learning curve, and actually prepares students to design more modern applications from the get-go.
+
 So let's get learning.

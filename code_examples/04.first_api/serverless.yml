@@ -1,0 +1,13 @@
+service: first-api
+
+provider:
+  name: aws
+  runtime: python3.8
+
+functions:
+  hello:
+    handler: handler.get_item
+    events:
+      - httpApi:
+          method: GET
+          path: /api/v1/items

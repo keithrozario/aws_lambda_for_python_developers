@@ -49,7 +49,7 @@
 
 * Chapter 25: The one with a Step Function
 * Chapter 26: Nested Step Functions
-* Chapter 27: Custom runtimes (Bash!!)
+* Chapter 27: Custom runtimes in our Step Functions
 
 ## Databases
 
@@ -89,3 +89,10 @@
 * Chapter 45: S3 Select
 * Chapter 46: Athena
 * Chapter 47: Fargate
+* Chapter 48: AWS Glue
+
+## Python Frameworks
+
+* Chapter 48: Running Flask app using Zappa
+* Chapter 50: Running Django with Zappa
+* Chapter 51: Running Flask app using Chalice

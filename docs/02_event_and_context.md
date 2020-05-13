@@ -1,12 +1,10 @@
 # What is the Handler?
 
-When we changed out Function Code in the previous chapter, you might have noticed the `lambda_handler` function. But just what is a lambda handler?
+When we changed out Function Code in the previous chapter, you might have noticed the `lambda_handler` function, and thought to yourself "hmmm... that looks important". And you're right -- it is important.
 
-All lambda functions have must have a handler. 
+The handler function is the starting point of your code. It's the *python* function that is executed when your *lambda* function runs.
 
-The handler is the piece of code that runs when the lambda function executes. The handler is the **python** function that is executed when your **lambda** function runs.
-
-So let's go back to our **Function Code** from chapter 1:
+So let's go back to our Function Code from chapter 1:
 
 ```python
 def lambda_handler(event, context):
@@ -18,13 +16,19 @@ def lambda_handler(event, context):
 
 ```
 
-Here the handler is the function `lambda_handler`. When you create a lambda function, Lambda automatically creates a single .py file and populates it with a generic handler function. But you can provide lambda any number of .py files as your code, and then specify the handler using the following convention **[file_name].[function_name]**. 
+Here the handler is the function `lambda_handler`. When you create a lambda function from the console, it is automatically populated with a single .py file with generic handler function. But we'll learn in later chapters how you can provide lambda any number of .py files as your code, and then specify the handler using the following convention:
 
-Let's take a look in the console again:
+> **<file_name_without_extension>.<function_name>**
+
+Let's take a look in the console again, notice 3 things:
+
+* The Handler is set to lambda_function.lambda_handler
+* lambda_function.py is the name of our .py file
+* lambda_handler is the name of function in our code
 
 ![handler_settings](images/02/Handler_Function.png)
 
-Now, handler functions must always two arguments, `event` and `context`, and it may return a value, i.e. they always have to look like this:
+Handler functions must always take two arguments, `event` and `context`, and they may return a value, in short they always have to look like this:
 
 ```python
 def lambda_handler(event, context):
@@ -36,7 +40,7 @@ Now let's look at the `event`, `context` and return value individually.
 
 ## Event
 
-`event` is the data that's passed to the function upon execution. In the previous chapter, we used the console to create an test `event` to be passed to the Lambda Function, and the function could then use that data to perform a simple print statement.
+`event` is the data that's passed to the function upon execution. In the previous chapter, we used the console to create a test `event` to be passed to the Lambda Function.
 
 In real-life, the event can come from whatever triggers the lambda, a good example, if the lambda were triggered from an HTTP api call via API Gateway, then the event object would look something like this:
 
@@ -78,13 +82,14 @@ In real-life, the event can come from whatever triggers the lambda, a good examp
 }
 ```
 
-As you can see it's a very rich event with a lot of data, including the Http Method used, the User-Agent, QueryStringParameters etc. `event` is usually a Python dictionary, from which data can easily be extracted, for example:
+As you can see it's a very rich event, including the Http Method used, the User-Agent, QueryStringParameters etc. `event` is usually a Python dictionary, from which data can easily be extracted using the tools we're already familiar with:
 
 ```python
-postcode = event['QueryStringParameters']['postcode']
+postcode = event['QueryStringParameters']['postcode'] # or if we're not sure if postcode is present:
+postcode = event.get('QueryStringParameters',{}).get('postcode','n/a')
 ```
 
-`event` can be thought of as the 'purpose' the lambda. When you hit the `Test` button on the console to test the lambda, you invoked the lambda and passed it the test `event` -- the lambda then took that event and performed some operation on it.
+`event` can be thought of as the 'purpose' the lambda. When you hit the `Test` button on the console, you invoked the lambda and passed it the test `event` -- the lambda then took that event and printed it out.
 
 As we dive deeper into AWS Lambda, we'll find more and more possible events that can trigger lambdas, such as:
 
@@ -95,13 +100,13 @@ As we dive deeper into AWS Lambda, we'll find more and more possible events that
 * An event from cloudwatch
 * .... and the list goes on...
 
-Each event will have a different format and carry different payloads, but the pattern is always the same. The lambda function is triggered, it will inspect it's event and perform a logic on the event before returning and terminating.
+Each event will have a different format and carry different payloads, but the pattern is always the same. The lambda function is triggered, it will inspect its event and perform a logic on the event before returning and terminating.
 
-Now that we've covered `event`, let's move onto `context`s
+Now that we've covered `event`, let's move onto `context`.
 
 ## Context
 
-`context` is a Python Class that implements methods and has attributes. It's main role is to provide information about the current execution environment.
+`context` is a Python objects that implements methods and has attributes. It's main role is to provide information about the current execution environment. Unlike `event`, the methods and properties of the `context` object remain the same regardless of the lambda was invoked or triggered. 
 
 ### Context methods
 
@@ -123,9 +128,11 @@ We will use the `context` object later on in the book, but for now we can likely
 
 Lambda functions can be triggered both synchronous and asynchronous fashion, which means sometimes it doesn't makes sense to provide a return value.
 
-However when invoked synchronously (e.g. via API), the return value will be returned to the calling application.
+However when invoked synchronously (e.g. via API), the return value will be returned to the calling application, and usually must be returned in a specific structure.
 
 For example, AWS Lambda console uses the synchronous invocation type, so when you invoke the function using the console, the console will display the returned value (serialized into json)
+
+> Return values must always 
 
 ## Conclusion
 
