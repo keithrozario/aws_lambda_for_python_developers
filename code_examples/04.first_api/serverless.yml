@@ -11,3 +11,9 @@ functions:
       - httpApi:
           method: GET
           path: /api/v1/items
+  item_colour:
+    handler: item_colour.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /api/v1/itemColour

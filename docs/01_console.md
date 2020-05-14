@@ -73,18 +73,18 @@ Let me say that again, in uppercase for dramatic effect:
 
 > YOU'VE JUST RUN CODE ON AWS!!!
 
-If you have previous experience with AWS on something like EC2, you know how hard it is to run code on the cloud. You first need to generate a key-pair, use that pair to provision a Virtual Machine(VM), logon to the VM with the private key, load your code onto the VM, and finally run it.
+If you have previous experience with AWS on something like EC2, you know how hard it is to run code on the cloud. You first need to generate a key-pair, use that pair to provision a Virtual Machine(VM), logon to the VM with the private key, load your code onto the VM, hope to God the runtime on the VM is compatible and then run the code.
 
-Don't even get me started on something like Fargate or EKS, where you need to create containers, and upload them to repositories etc.
+Don't even get me started on something like Fargate or EKS, where you need to create containers, and upload them to repositories.
 
 It's a lot of work to run code on AWS ....
 
-Unless you're Lambda.
+Or at least, it **used** to be a lot of work to run code on AWS.
 
-With Lambda we don't need keypairs, Elastic IPs or Dockerfiles. You can literally pass code to AWS for it to run (as the example demonstrated). 
+With Lambda we don't need keypairs, Elastic IPs or Dockerfiles. You can literally pass code to AWS for it to run (as the example demonstrated), and it'll work.
 
 If you haven't had AWS experience before -- congratulations, you're jumping onto the bandwagon at the precise time when it's easiest and most beneficial, and this is why lambda functions are a powerful tool to learn.
 
-10 years ago, learning AWS exclusively meant learning to run VMs on the EC2. Today, we have a wealth of options, and Lambda is the best place to start as it has a much lower learning curve, and actually prepares students to design more modern applications from the get-go.
+10 years ago, learning AWS, exclusively meant learning to run VMs on the EC2. Today, we have a wealth of options, and Lambda is the best options for beginners and experts alike, not only is the learning curve easier it's also more future-proof as more applications are going to be built using lambda than any other platform.
 
 So let's get learning.
